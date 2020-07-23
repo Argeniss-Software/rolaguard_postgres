@@ -3670,3 +3670,12 @@ ALTER TABLE ONLY public.gateway_tag
 commit;
 
 CREATE UNIQUE INDEX device_vendor_prefix_prefix_idx ON public.device_vendor_prefix (prefix);
+
+
+-- Asset importance
+
+CREATE TYPE asset_importance AS ENUM ('LOW', 'MEDIUM', 'HIGH');
+
+ALTER TABLE public.device ADD importance asset_importance NULL;
+
+ALTER TABLE public.gateway ADD importance asset_importance NULL;
