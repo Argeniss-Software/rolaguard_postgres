@@ -3674,8 +3674,8 @@ CREATE UNIQUE INDEX device_vendor_prefix_prefix_idx ON public.device_vendor_pref
 
 -- Asset importance
 
-CREATE TYPE asset_importance AS ENUM ('LOW', 'MEDIUM', 'HIGH');
+CREATE TYPE public.asset_importance AS ENUM ('LOW', 'MEDIUM', 'HIGH');
 
-ALTER TABLE public.device ADD importance asset_importance NULL;
+ALTER TABLE public.device ADD importance public.asset_importance NULL;
 
-ALTER TABLE public.gateway ADD importance asset_importance NULL;
+ALTER TABLE public.gateway ADD importance public.asset_importance NULL;
