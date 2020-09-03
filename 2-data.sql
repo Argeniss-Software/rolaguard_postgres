@@ -34664,3 +34664,7 @@ INSERT INTO public.alert_type (code,name,message,risk,description,parameters,tec
  'A device has sent many join requests without being able to connect to any network.','Check if device belongs to your LoRaWAN network.',
  1209600)
 ;
+
+-- Add automatic problem solved issue resolution reason
+INSERT INTO public.quarantine_resolution_reason (id, type, name, description) VALUES
+(0, 'AUTOMATIC'::quarantineresolutionreasontype, 'Problem solved', 'The quarantine was removed since the vulnerability was solved.');
