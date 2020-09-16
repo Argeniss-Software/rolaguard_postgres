@@ -3552,3 +3552,6 @@ ALTER TABLE public.quarantine ALTER COLUMN last_checked type timestamp with time
 
 -- Create alert_asset_type enum
 CREATE TYPE public.alert_asset_type AS ENUM ('DEVICE', 'GATEWAY', 'BOTH', 'NONE', 'LOOK_IN_ALERT_PARAMS');
+
+-- Add for_asset_type column to alert_type table
+ALTER TABLE public.alert_type ADD for_asset_type public.alert_asset_type NOT NULL DEFAULT 'BOTH';
