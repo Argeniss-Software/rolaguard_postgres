@@ -3565,3 +3565,12 @@ ALTER TABLE public.gateway ADD first_activity timestamptz(0) NULL;
 
 -- Create counter_type enum
 CREATE TYPE public.counter_type AS ENUM ('PACKETS_UP', 'PACKETS_DOWN', 'PACKETS_LOST', 'JOIN_REQUESTS', 'FAILED_JOIN_REQUESTS');
+
+-- Create device_counters table
+CREATE TABLE public.device_counters (
+	device_id bigint NOT NULL,
+    counter_type public.counter_type NOT NULL,
+    hour_of_day int NOT NULL,
+    value bigint NOT NULL DEFAULT 0,
+    last_update timestamp with time zone NOT NULL
+);
