@@ -3562,3 +3562,6 @@ ALTER TABLE public.device ADD activity_freq_variance float8 NOT NULL DEFAULT 0;
 -- Save first activity of the assets
 ALTER TABLE public.device ADD first_activity timestamptz(0) NULL;
 ALTER TABLE public.gateway ADD first_activity timestamptz(0) NULL;
+
+-- Create counter_type enum
+CREATE TYPE public.counter_type AS ENUM ('PACKETS_UP', 'PACKETS_DOWN', 'PACKETS_LOST', 'JOIN_REQUESTS', 'FAILED_JOIN_REQUESTS');
