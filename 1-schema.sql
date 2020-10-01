@@ -3564,7 +3564,7 @@ ALTER TABLE public.device ADD first_activity timestamptz(0) NULL;
 ALTER TABLE public.gateway ADD first_activity timestamptz(0) NULL;
 
 -- Create counter_type enum
-CREATE TYPE public.counter_type AS ENUM ('PACKETS_UP', 'PACKETS_DOWN', 'PACKETS_LOST', 'JOIN_REQUESTS', 'FAILED_JOIN_REQUESTS');
+CREATE TYPE public.counter_type AS ENUM ('PACKETS_UP', 'PACKETS_DOWN', 'PACKETS_LOST', 'JOIN_REQUESTS', 'FAILED_JOIN_REQUESTS', 'RETRANSMISSIONS');
 
 -- Create device_counters table
 CREATE TABLE public.device_counters (
