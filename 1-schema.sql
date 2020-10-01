@@ -3574,3 +3574,12 @@ CREATE TABLE public.device_counters (
     value bigint NOT NULL DEFAULT 0,
     last_update timestamp with time zone NOT NULL
 );
+
+-- Create gateway_counters table
+CREATE TABLE public.gateway_counters (
+	gateway_id bigint NOT NULL,
+    counter_type public.counter_type NOT NULL,
+    hour_of_day int NOT NULL,
+    value bigint NOT NULL DEFAULT 0,
+    last_update timestamp with time zone NOT NULL
+);
