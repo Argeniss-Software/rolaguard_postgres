@@ -3573,7 +3573,8 @@ CREATE TABLE public.device_counters (
     hour_of_day int NOT NULL,
     value bigint NOT NULL DEFAULT 0,
     last_update timestamp with time zone NOT NULL,
-    CONSTRAINT device_counters_fk_1 FOREIGN KEY (device_id) REFERENCES public.device(id)
+    CONSTRAINT device_counters_fk_1 FOREIGN KEY (device_id) REFERENCES public.device(id),
+    CONSTRAINT device_counters_pkey PRIMARY KEY (device_id, counter_type, hour_of_day)
 );
 
 -- Create gateway_counters table
@@ -3583,5 +3584,6 @@ CREATE TABLE public.gateway_counters (
     hour_of_day int NOT NULL,
     value bigint NOT NULL DEFAULT 0,
     last_update timestamp with time zone NOT NULL,
-    CONSTRAINT gateway_counters_fk_1 FOREIGN KEY (gateway_id) REFERENCES public.gateway(id)
+    CONSTRAINT gateway_counters_fk_1 FOREIGN KEY (gateway_id) REFERENCES public.gateway(id),
+    CONSTRAINT gateway_counters_pkey PRIMARY KEY (gateway_id, counter_type, hour_of_day)
 );
