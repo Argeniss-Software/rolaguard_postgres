@@ -34897,12 +34897,12 @@ VALUES      ('LAF-103',
              'Too many retransmissions by device',
              'The device {dev_eui} (device name: {dev_name}, device vendor: {dev_vendor}) is sending the same message too many times.  Application: {join_eui} {app_name}. Alert generated on {created_at}.',
              'MEDIUM',
-'The device is retransmitting too much messages, according to threshold set in policy'
+'The device is retransmitting too many messages, according to threshold set in policy'
              ,
 '{"max_retransmissions":  {"type":"Integer","default":10,"maximum":1000000,"minimum":0,"description":"Represents a threshold of allowed retransmissions in a certain period of time. If a number or retransmissions that is higher than this value was detected in the last (time_window) hours, an alert will be raised"}, "time_window": {"type":"Integer","default":24,"maximum":24,"minimum":0, "description":"Represents the amount of time that is taken into account when deciding if the number of retransmissions by device should raise an alert. Measured in hours, can take a maximum value of 24, representing a time window of a day"}}'
              ,
-'This situation is due to the device retransmitting the same message because it didn’t get the confirmation from LoRaWAN network server, and can lead to: increasing device''s battery consumption, data not being received by the application.'
+'The device is retransmitting the same message too many times because it doesn''t receive the confirmations from LoRaWAN Network Server. This can lead to increased device''s battery consumption and data not being received by the application.'
              ,
-'Check that the acknowledgment message from LoRaWAN Network Server is being received, and that the device is working properly, without malfunctioning.',
+'Check that the acknowledgment message from LoRaWAN Network Server is being received, and that the device is not malfunctioning.',
 86400,
 'DEVICE')  
