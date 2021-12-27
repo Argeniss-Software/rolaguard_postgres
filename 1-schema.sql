@@ -3616,3 +3616,6 @@ CREATE SEQUENCE public.ttn_region_id_seq
 ALTER TABLE public.ttn_region_id_seq OWNER TO postgres;
 
 ALTER SEQUENCE public.ttn_region_id_seq OWNED BY public.ttn_region.id;
+
+ALTER TABLE public.notification ADD notification_state VARCHAR(2000);
+ALTER TABLE public.notification ADD notification_source VARCHAR(200);
