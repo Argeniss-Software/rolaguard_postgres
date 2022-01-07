@@ -3616,3 +3616,49 @@ CREATE SEQUENCE public.ttn_region_id_seq
 ALTER TABLE public.ttn_region_id_seq OWNER TO postgres;
 
 ALTER SEQUENCE public.ttn_region_id_seq OWNED BY public.ttn_region.id;
+
+CREATE TABLE public.gateway_hiding (
+    id bigint NOT NULL,
+    user_id bigint NOT NULL,
+    gateway_id bigint NOT NULL,
+    hidden boolean NOT NULL,
+    CONSTRAINT gateway_hiding_pk PRIMARY KEY (id),
+    CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES public.iot_user(id),
+    CONSTRAINT gateway_id_fk FOREIGN KEY (gateway_id) REFERENCES public.gateway(id)
+);
+
+ALTER TABLE public.gateway_hiding OWNER TO postgres;
+
+CREATE SEQUENCE public.gateway_hiding_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+ALTER TABLE public.gateway_hiding_id_seq OWNER TO postgres;
+
+ALTER SEQUENCE public.gateway_hiding_id_seq OWNED BY public.gateway_hiding.id;
+ALTER TABLE ONLY public.gateway_hiding ALTER COLUMN id SET DEFAULT nextval('public.gateway_hiding_id_seq'::regclass);
+
+CREATE TABLE public.device_hiding (
+    id bigint NOT NULL,
+    user_id bigint NOT NULL,
+    device_id bigint NOT NULL,
+    hidden boolean NOT NULL,
+    CONSTRAINT device_hiding_pk PRIMARY KEY (id),
+    CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES public.iot_user(id),
+    CONSTRAINT device_id_fk FOREIGN KEY (device_id) REFERENCES public.device(id)
+);
+
+ALTER TABLE public.device_hiding OWNER TO postgres;
+
+CREATE SEQUENCE public.device_hiding_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+ALTER TABLE public.device_hiding_id_seq OWNER TO postgres;
+
+ALTER SEQUENCE public.device_hiding_id_seq OWNED BY public.device_hiding.id;
+ALTER TABLE ONLY public.device_hiding ALTER COLUMN id SET DEFAULT nextval('public.device_hiding_id_seq'::regclass);
